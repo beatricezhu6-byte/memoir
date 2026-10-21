@@ -1,0 +1,62 @@
+header button.memoir-back-button,
+header button[data-elder-back="1"],
+header button[data-back-fixed="1"] {
+  width: 132px !important;
+  min-width: 132px !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  padding: 0 22px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, rgba(255, 249, 231, 0.98), rgba(255, 239, 195, 0.98)) !important;
+  color: #8f3d09 !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  box-shadow: 0 8px 20px rgba(121, 69, 24, 0.16) !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+html body #root header button.memoir-back-button,
+html body #root header button[data-elder-back="1"],
+html body #root header button[data-back-fixed="1"],
+#app-root header button.memoir-back-button,
+#app-root header button[data-elder-back="1"],
+#app-root header button[data-back-fixed="1"] {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 8px 20px rgba(121, 69, 24, 0.16) !important;
+}
+
+header button.memoir-back-button:hover,
+header button[data-elder-back="1"]:hover,
+header button[data-back-fixed="1"]:hover {
+  background: linear-gradient(180deg, #fff8df, #ffe9b4) !important;
+  box-shadow: 0 10px 24px rgba(121, 69, 24, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+header button.memoir-back-button svg,
+header button[data-back-fixed="1"] svg {
+  width: 26px !important;
+  height: 26px !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  stroke-width: 3 !important;
+}
+
+header button.memoir-back-button *,
+header button[data-elder-back="1"] *,
+header button[data-back-fixed="1"] * {
+  line-height: 1 !important;
+}

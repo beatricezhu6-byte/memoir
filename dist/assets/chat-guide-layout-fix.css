@@ -1,0 +1,31 @@
+/* Chat guide layout repair: keep the approved card artwork, but anchor it inside the page panel. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main {
+  width: min(100%, 58rem) !important;
+  padding: 1.35rem 1.2rem 2rem !important;
+}
+
+/* The reference artwork already contains this heading; keep the live copy hidden to avoid duplication. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div:first-child {
+  display: none !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: .9rem !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button {
+  aspect-ratio: 1.16 / 1 !important;
+  overflow: hidden !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:hover,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:focus-visible {
+  transform: translateY(-3px) scale(1.018) !important;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> header + main > div > div.grid > button h4) > main {
+    width: 100% !important;
+    padding: 1rem !important;
+  }
+}

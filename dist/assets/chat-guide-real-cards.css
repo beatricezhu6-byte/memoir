@@ -1,0 +1,194 @@
+/*
+ * Chat guide cards must remain real controls.  The older visual treatment
+ * replaced each card with a single bitmap and hid its interactive content.
+ * This final layer restores the existing React text and button elements.
+ */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 0.65rem !important;
+  min-height: 13.25rem !important;
+  aspect-ratio: auto !important;
+  padding: 1rem 1.15rem 3.5rem !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  border: 1px solid rgba(123, 72, 34, 0.15) !important;
+  border-radius: 1.25rem !important;
+  background-image: none !important;
+  box-shadow: 0 8px 18px rgba(102, 59, 29, 0.12) !important;
+  color: #6f3519 !important;
+  opacity: 1 !important;
+}
+
+/* The prior frame contained a screenshot of the cards, causing duplicate text. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) {
+  background: linear-gradient(rgba(255, 247, 233, 0.56), rgba(255, 249, 240, 0.74)), url("/assets/memoir-gallery-room.png") center / cover no-repeat !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main {
+  width: min(100%, 74rem) !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div {
+  padding: 1.25rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.88) !important;
+  border-radius: 1.8rem !important;
+  background: rgba(255, 253, 248, 0.88) !important;
+  box-shadow: 0 16px 36px rgba(96, 55, 24, 0.14) !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button * {
+  opacity: 1 !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > div:first-child {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.7rem !important;
+  min-height: 3.7rem !important;
+  margin: 0 !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > div:first-child > :first-child {
+  flex: 0 0 auto !important;
+}
+
+/* Names are fixed companions, so there is no rename control on these cards. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > div:first-child button {
+  display: none !important;
+}
+
+/* A compact, independent avatar marker - no screenshot or card artwork is used. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > div:first-child > span.text-3xl {
+  display: grid !important;
+  width: 3.9rem !important;
+  height: 3.9rem !important;
+  place-items: center !important;
+  flex: 0 0 3.9rem !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(255, 255, 255, 0.92) !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 34% 28%, #fffdf7 0 14%, #ffd6e5 15% 55%, #f7a7c7 100%) !important;
+  box-shadow: 0 4px 10px rgba(132, 55, 77, 0.14) !important;
+  font-size: 2.15rem !important;
+  line-height: 1 !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2) > div:first-child > span.text-3xl { background: radial-gradient(circle at 34% 28%, #fffdf7 0 14%, #ffe3aa 15% 55%, #efbf68 100%) !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3) > div:first-child > span.text-3xl { background: radial-gradient(circle at 34% 28%, #fff 0 14%, #d9ebff 15% 55%, #9fc7f6 100%) !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4) > div:first-child > span.text-3xl { background: radial-gradient(circle at 34% 28%, #fff 0 14%, #e8d9ff 15% 55%, #c4a5f0 100%) !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5) > div:first-child > span.text-3xl { background: radial-gradient(circle at 34% 28%, #fff 0 14%, #c9f5d9 15% 55%, #89d8a9 100%) !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) > div:first-child > span.text-3xl { background: radial-gradient(circle at 34% 28%, #fff 0 14%, #ffd9d7 15% 55%, #f1aaa5 100%) !important; }
+
+/* Use only the illustrated portrait area of each original card as an avatar. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > div:first-child > span.text-3xl {
+  background-size: 175px 175px !important;
+  background-position: -12px -10px !important;
+  background-repeat: no-repeat !important;
+  font-size: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(1) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-1.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-2.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-3.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-4.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-5.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) > div:first-child > span.text-3xl { background-image: url("/assets/chat-companion-6.png") !important; }
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(1) > div:first-child > span.text-3xl,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2) > div:first-child > span.text-3xl,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3) > div:first-child > span.text-3xl,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4) > div:first-child > span.text-3xl,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5) > div:first-child > span.text-3xl,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) > div:first-child > span.text-3xl {
+  background-size: 175px 175px !important;
+  background-position: -12px -10px !important;
+  background-repeat: no-repeat !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button h4 {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  font-size: clamp(1.25rem, 1.7vw, 1.7rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  color: inherit !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button p {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #78462a !important;
+  font-size: clamp(0.86rem, 1.08vw, 1rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.48 !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > .memoir-chat-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  position: absolute !important;
+  right: 1.15rem !important;
+  bottom: 1rem !important;
+  left: 1.15rem !important;
+  min-height: 2.35rem !important;
+  margin-top: auto !important;
+  padding: 0.38rem 0.8rem !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  color: inherit !important;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button > .memoir-chat-cta .memoir-chat-arrow {
+  display: inline-block !important;
+  font-size: 1.2em !important;
+  line-height: 1 !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(1) { background-color: #fff0f5 !important; color: #bd2559 !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2) { background-color: #fff7e5 !important; color: #c76d12 !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3) { background-color: #edf6ff !important; color: #1e61ba !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4) { background-color: #f5efff !important; color: #7142b7 !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5) { background-color: #ebfff2 !important; color: #24834d !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) { background-color: #fff0f0 !important; color: #bf3344 !important; }
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(1),
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2),
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3),
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4),
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5),
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) {
+  background-image: none !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid {
+  grid-template-rows: repeat(2, auto) !important;
+}
+
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:hover,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:focus-visible {
+  z-index: 5 !important;
+  transform: translateY(-4px) scale(1.015) !important;
+  box-shadow: 0 14px 24px rgba(102, 59, 29, 0.18) !important;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button {
+    min-height: 14.5rem !important;
+    aspect-ratio: auto !important;
+  }
+}

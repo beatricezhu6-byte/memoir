@@ -1,0 +1,237 @@
+/* Warm side drawer skin for both child and elder portals. Functionality stays on the original buttons. */
+
+#app-root {
+  position: relative;
+}
+
+#app-root:has(.memoir-drawer-polished.translate-x-0)::before {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  background: rgba(73, 31, 10, 0.22);
+  backdrop-filter: blur(8px) saturate(0.96);
+  content: "";
+}
+
+#app-root .memoir-drawer-polished {
+  width: min(382px, calc(100vw - 18px)) !important;
+  left: 0 !important;
+  translate: 0 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 226, 179, 0.55) !important;
+  border-left: 0 !important;
+  border-radius: 0 24px 24px 0 !important;
+  background:
+    radial-gradient(circle at 6% 92%, rgba(246, 184, 79, 0.22) 0 12%, transparent 28%),
+    linear-gradient(180deg, rgba(255, 249, 237, 0.99), rgba(255, 239, 211, 0.99)) !important;
+  box-shadow: 18px 0 42px rgba(61, 25, 7, 0.25) !important;
+  color: #6d310f !important;
+  z-index: 30 !important;
+}
+
+#app-root .memoir-drawer-polished.-translate-x-full {
+  transform: translateX(calc(-100% - 14px)) !important;
+}
+
+#app-root .memoir-drawer-polished.translate-x-0 {
+  transform: translateX(0) !important;
+}
+
+#app-root .memoir-drawer-head {
+  min-height: 88px !important;
+  padding: 24px 24px 14px !important;
+  border: 0 !important;
+  background:
+    radial-gradient(circle at 76% 12%, rgba(246, 172, 70, 0.2) 0 8%, transparent 20%),
+    linear-gradient(135deg, #8f4318 0%, #6c2d0d 100%) !important;
+}
+
+#app-root .memoir-drawer-head > :first-child {
+  color: #fffaf0 !important;
+  font-size: 30px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+  text-shadow: 0 2px 0 rgba(82, 33, 8, 0.22);
+}
+
+#app-root .memoir-drawer-head button {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 13px !important;
+  background: rgba(255, 239, 217, 0.22) !important;
+  color: #fff9ef !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+#app-root .memoir-drawer-head button svg {
+  width: 24px !important;
+  height: 24px !important;
+  stroke-width: 2.4 !important;
+}
+
+#app-root .memoir-drawer-profile {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  min-height: 100px;
+  margin: 0 0 14px;
+  padding: 12px 24px 18px;
+  border-top: 1px solid rgba(255, 231, 194, 0.22);
+  background:
+    radial-gradient(circle at 82% 8%, rgba(244, 168, 61, 0.22) 0 10%, transparent 24%),
+    linear-gradient(135deg, #8f4318 0%, #5c2409 100%) !important;
+  color: #fff8ed;
+}
+
+#app-root .memoir-drawer-avatar {
+  width: 68px;
+  height: 68px;
+  border: 4px solid rgba(255, 250, 240, 0.96);
+  border-radius: 50%;
+  background:
+    linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+    url("/assets/family-CD_BlvZp.png") center / cover no-repeat,
+    #f5c56c;
+  box-shadow: 0 5px 14px rgba(70, 30, 7, 0.23);
+}
+
+#app-root .memoir-drawer-elder .memoir-drawer-avatar {
+  background:
+    linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+    url("/assets/elderly-CXFT-HLW.png") center / cover no-repeat,
+    #f5c56c;
+}
+
+#app-root .memoir-drawer-profile strong {
+  display: block;
+  color: #fffaf0;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+#app-root .memoir-drawer-profile span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255, 248, 236, 0.9);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#app-root .memoir-drawer-nav {
+  flex: 0 1 auto !important;
+  margin: 0 !important;
+  padding: 14px 24px 10px !important;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, rgba(255, 249, 237, 0.99), rgba(255, 244, 221, 0.99)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+#app-root .memoir-drawer-item {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 54px minmax(0, 1fr) 20px !important;
+  align-items: center !important;
+  min-height: 72px !important;
+  width: 100% !important;
+  padding: 0 18px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(169, 112, 55, 0.14) !important;
+  border-radius: 17px !important;
+  background: transparent !important;
+  color: #5c2b11 !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+
+#app-root .memoir-drawer-item:hover,
+#app-root .memoir-drawer-item:focus-visible {
+  background: linear-gradient(90deg, #ffe9bf, #fff4dd) !important;
+  color: #6e320f !important;
+  transform: none !important;
+  box-shadow: 0 8px 18px rgba(128, 69, 26, 0.12);
+}
+
+#app-root .memoir-drawer-item svg {
+  width: 30px !important;
+  height: 30px !important;
+  color: #8a4216 !important;
+  stroke-width: 2.5 !important;
+}
+
+#app-root .memoir-drawer-item::after {
+  justify-self: end;
+  color: #7d3a14;
+  content: "\203A";
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+#app-root .memoir-drawer-footer {
+  margin-top: auto;
+  padding: 22px 24px 28px;
+  background:
+    radial-gradient(circle at 0 15%, rgba(246, 184, 79, 0.23) 0 18%, transparent 34%),
+    linear-gradient(180deg, rgba(255, 244, 221, 0.99), rgba(255, 238, 205, 0.99));
+}
+
+#app-root .memoir-drawer-footer::before {
+  display: block;
+  max-width: 178px;
+  margin: 0 auto 20px;
+  color: #b6783d;
+  content: "\8BA9\56DE\5FC6\A\88AB\6E29\67D4\5730\8BB0\4F4F";
+  font-family: KaiTi, STKaiti, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  white-space: pre-line;
+  transform: rotate(-8deg);
+}
+
+#app-root .memoir-drawer-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+#app-root .memoir-drawer-footer::before {
+  grid-column: 1 / -1;
+}
+
+#app-root .memoir-drawer-action {
+  min-height: 64px !important;
+  padding: 0 12px !important;
+  border: 2px solid rgba(197, 139, 73, 0.2) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,242,218,0.82)) !important;
+  color: #793817 !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 5px 14px rgba(109, 57, 20, 0.09) !important;
+}
+
+#app-root .memoir-drawer-action:hover {
+  transform: translateY(-1px);
+  background: #fff6e4 !important;
+}
+
+@media (max-width: 560px) {
+  #app-root .memoir-drawer-polished {
+    width: min(360px, calc(100vw - 10px)) !important;
+  }
+
+  #app-root .memoir-drawer-item {
+    min-height: 66px !important;
+    font-size: 20px !important;
+  }
+}

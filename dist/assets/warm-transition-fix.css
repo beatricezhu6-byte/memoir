@@ -1,0 +1,33 @@
+/* Keep route changes on the same warm canvas so the old slate layer never flashes through. */
+html,
+body,
+#root {
+  min-height: 100svh !important;
+  background: #fff8e8 !important;
+}
+
+/* React briefly leaves app-root visible while replacing child-side screens. */
+#app-root,
+#app-root.bg-slate-900 {
+  min-height: 100svh !important;
+  background: #fff8e8 !important;
+}
+
+#root > div.transition-opacity,
+#root > div[class*="transition-opacity"] {
+  min-height: 100svh !important;
+  background: #fff8e8 !important;
+}
+
+/* Older screens still mount with a slate utility class for a frame; make that frame warm immediately. */
+#app-root > div > div.h-screen[class*="from-slate"],
+#app-root > div > div.h-screen[class*="bg-slate"] {
+  background-color: #fff8e8 !important;
+}
+
+/* The identity button must not collapse into two lines on any inner page. */
+#app-root > div > div.h-screen > header > button:last-child {
+  min-width: 7rem !important;
+  white-space: nowrap !important;
+  justify-content: center !important;
+}

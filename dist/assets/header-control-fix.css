@@ -1,0 +1,88 @@
+/* Keep repaired visual pages intact; this only fixes header control placement. */
+
+/* Elder function dashboard: back left, title center, menu/exit and avatar right. */
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header {
+  display: grid !important;
+  grid-template-columns: minmax(132px, 180px) minmax(0, 1fr) minmax(128px, 180px) 64px !important;
+  align-items: center !important;
+  column-gap: 14px !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > button.memoir-back-button {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2 {
+  position: static !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: center !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  transform: none !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div.flex.items-center.gap-4 {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:last-child {
+  grid-column: 4 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+}
+
+/* Elder detail pages: keep back/title/avatar in separate lanes too. */
+#app-root > div > div:has(> header + main button.relative.w-40) > header {
+  display: grid !important;
+  grid-template-columns: minmax(132px, 180px) minmax(0, 1fr) 64px !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header > button.memoir-back-button {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header > h2 {
+  position: static !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: center !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  transform: none !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header > div:last-child {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header,
+  #app-root > div > div:has(> header + main button.relative.w-40) > header {
+    grid-template-columns: 132px minmax(0, 1fr) 56px !important;
+  }
+
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div.flex.items-center.gap-4 {
+    display: none !important;
+  }
+
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:last-child {
+    grid-column: 3 !important;
+  }
+}
