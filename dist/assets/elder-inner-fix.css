@@ -1,0 +1,24 @@
+/* ============================================================
+   老人端内页修复 v20260920-01
+   作用域：#app-root[class*="FFF8DC"] = 仅老人端（子女端是 slate-900，不命中）
+   背景：大事年表等浅顶栏内页，header 被 React 高频重渲染，
+         JS 注入的内联样式会被抹掉 → 改用 CSS 定位稳定类名，一劳永逸
+   移除本文件即回滚
+   ============================================================ */
+
+/* —— 「退回」按钮：白底描边芯片（原 bg-amber-100 在半透顶栏上发虚） —— */
+#app-root[class*="FFF8DC"] header.bg-white\/50 button.bg-amber-100 {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1.5px solid rgba(139, 94, 52, 0.5) !important;
+  box-shadow: 0 2px 6px rgba(90, 50, 20, 0.18) !important;
+}
+#app-root[class*="FFF8DC"] header.bg-white\/50 button.bg-amber-100:hover {
+  background: #fff !important;
+}
+
+/* —— 浅顶栏标题压深，避免发虚 —— */
+#app-root[class*="FFF8DC"] header.bg-white\/50 h2 {
+  color: #4a2510 !important;
+}
+
+

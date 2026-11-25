@@ -1,0 +1,1497 @@
+/* Home screen visual treatment. The application markup and actions stay intact. */
+:root {
+  --memoir-ink: #4a2411;
+  --memoir-brown: #6a3214;
+  --memoir-orange: #ef7148;
+  --memoir-gold: #f6b735;
+  --memoir-cream: #fffbed;
+  --memoir-green: #b9df92;
+}
+
+/* Decorative layers must never sit on top of the real controls. */
+#app-root button { position: relative; z-index: 2; pointer-events: auto !important; cursor: pointer; }
+#app-root button::before,
+#app-root button::after,
+#app-root [class*="memoir"]::before,
+#app-root [class*="memoir"]::after { pointer-events: none !important; }
+
+.memoir-landing {
+  position: relative;
+  isolation: isolate;
+  display: grid !important;
+  min-height: 100vh;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto minmax(18rem, 1fr) auto;
+  gap: 1.2rem;
+  overflow: hidden;
+  padding: 2rem clamp(2rem, 4vw, 4.8rem) 2.45rem !important;
+  background: #f9df91 !important;
+  color: var(--memoir-ink);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.memoir-landing::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  content: "";
+  background: url("/assets/warm-memoir-hero.png") center / cover no-repeat;
+}
+
+.memoir-landing::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 239, 180, .03) 0%, rgba(255, 251, 231, .05) 45%, rgba(255, 250, 226, .2) 100%);
+  pointer-events: none;
+}
+
+.memoir-landing > .mb-6 { display: none !important; }
+
+.memoir-landing > h1 {
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: start;
+  margin: 0 !important;
+  color: var(--memoir-brown) !important;
+  font-size: clamp(1.55rem, 2.3vw, 2.1rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .045em !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .55) !important;
+}
+
+.memoir-landing > h1::before {
+  display: inline-grid;
+  width: 1.45em;
+  height: 1.45em;
+  margin-right: .68rem;
+  place-items: center;
+  border: 2px solid #a55a22;
+  border-radius: .22em;
+  color: #d17a2e;
+  content: "\2665";
+  font-size: .68em;
+  vertical-align: .12em;
+}
+
+.memoir-landing > h1::after {
+  margin-left: .8rem;
+  padding-left: .8rem;
+  border-left: 2px solid #b87338;
+  color: #8d4a20;
+  content: "\6696\9633\966A\4F34";
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  vertical-align: .22em;
+}
+
+.memoir-landing > p {
+  position: relative;
+  z-index: 1;
+  grid-column: 7 / 13;
+  grid-row: 2;
+  align-self: center;
+  margin: 1.25rem 0 2rem !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-align: left;
+}
+
+.memoir-landing > p::before {
+  display: block;
+  color: #321408;
+  content: "\4ECA\5929\FF0C\A \60F3\804A\70B9\4EC0\4E48\FF1F";
+  font-size: clamp(2.85rem, 4.45vw, 4.85rem);
+  font-weight: 900;
+  letter-spacing: .04em;
+  line-height: 1.14;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, .86);
+  white-space: pre-line;
+}
+
+.memoir-landing > p::after {
+  display: block;
+  width: fit-content;
+  margin-top: 1.25rem;
+  padding: .68rem 1.1rem .72rem;
+  border-radius: 999px;
+  background: rgba(255, 251, 235, .78);
+  color: #75401f;
+  content: "\60A8\7684\6545\4E8B\FF0C\5BB6\4EBA\4F1A\597D\597D\73CD\85CF";
+  font-size: clamp(1.1rem, 1.55vw, 1.38rem);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.memoir-landing > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  grid-column: 1 / -1;
+  grid-row: 3;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 1.6vw, 1.55rem) !important;
+  width: 100%;
+  max-width: none !important;
+  padding-bottom: 1.75rem;
+}
+
+.memoir-landing > div:last-child::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #8d562b;
+  content: "\2014\2014   \2665   \8BA9\8BB0\5FC6\FF0C\6210\4E3A\5BB6\91CC\6700\6E29\6696\7684\5B9D\85CF   \2014\2014";
+  font-size: .85rem;
+  font-weight: 800;
+  letter-spacing: .055em;
+  text-align: center;
+}
+
+.memoir-landing button.flex-1 {
+  position: relative;
+  min-height: clamp(11rem, 17vw, 14rem);
+  overflow: hidden;
+  padding: 2rem 12rem 1.8rem clamp(1.45rem, 2.4vw, 2.4rem) !important;
+  border: 4px solid rgba(255, 255, 248, .95) !important;
+  border-radius: 1.5rem !important;
+  background: linear-gradient(145deg, rgba(255, 220, 107, .98), rgba(248, 189, 59, .96)) !important;
+  box-shadow: 0 11px 0 rgba(125, 72, 25, .15), 0 17px 30px rgba(115, 61, 19, .18) !important;
+  text-align: left !important;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.memoir-landing button.flex-1 + button.flex-1 {
+  background: linear-gradient(145deg, rgba(214, 243, 175, .98), rgba(167, 214, 116, .98)) !important;
+}
+
+.memoir-landing button.flex-1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 0 rgba(125, 72, 25, .13), 0 24px 34px rgba(115, 61, 19, .2) !important;
+}
+
+.memoir-landing button.flex-1 > span { display: none !important; }
+
+.memoir-landing button.flex-1 h3 {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 0 .75rem !important;
+  padding: .35rem .82rem .42rem;
+  border-radius: .85rem;
+  background: rgba(255, 253, 243, .88);
+  color: #45200e !important;
+  font-size: clamp(1.7rem, 2.5vw, 2.55rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.18 !important;
+}
+
+.memoir-landing button.flex-1 p {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 !important;
+  color: #633818 !important;
+  font-size: clamp(.92rem, 1.28vw, 1.08rem) !important;
+  font-weight: 800;
+  line-height: 1.62 !important;
+}
+
+.memoir-landing button.flex-1::before {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  z-index: 0;
+  width: clamp(8.3rem, 11vw, 10.8rem);
+  height: clamp(8.3rem, 11vw, 10.8rem);
+  content: "";
+  background: url("/assets/warm-memoir-hero.png") 25% 54% / cover no-repeat;
+  border: 5px solid rgba(255, 253, 246, .9);
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(111, 62, 21, .17);
+  transform: translateY(-50%);
+}
+
+.memoir-landing button.flex-1 + button.flex-1::before {
+  background-image: url("/assets/warm-memoir-family.png");
+  background-position: 75% center;
+}
+
+.memoir-landing button.flex-1::after {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.1rem;
+  z-index: 1;
+  display: grid;
+  width: 3.45rem;
+  height: 3.45rem;
+  place-items: center;
+  border: 4px solid rgba(255, 253, 246, .95);
+  border-radius: 50%;
+  background: var(--memoir-orange);
+  box-shadow: 0 4px 0 rgba(163, 73, 46, .2);
+  color: #fff;
+  content: "\8FDB\5165";
+  font-size: .86rem;
+  font-weight: 900;
+}
+
+.memoir-landing button.flex-1 + button.flex-1::after { background: #6da045; }
+
+.memoir-landing button:focus-visible {
+  outline: 4px solid rgba(239, 113, 72, .48);
+  outline-offset: 4px;
+}
+
+/* Child dashboard: the same warm, roomy home as the elder-facing screens. */
+.memoir-child-hub {
+  position: relative;
+  min-height: 100svh !important;
+  overflow: hidden !important;
+  background: linear-gradient(rgba(255,248,229,.35), rgba(255,248,229,.42)), url("/assets/memoir-gallery-room.png") center / cover !important;
+  color: #643018 !important;
+}
+.memoir-child-hub > header {
+  position: relative;
+  z-index: 3;
+  min-height: 5.2rem;
+  padding: .85rem 2.6rem !important;
+  background: linear-gradient(90deg, #7c3618, #a95324 58%, #813817) !important;
+  border: 0 !important;
+  box-shadow: 0 4px 14px rgba(80,38,16,.2) !important;
+}
+.memoir-child-hub > header button { font-size: 1.05rem !important; font-weight: 900 !important; }
+.memoir-child-hub > header > div:first-child > div > span { font-size: 1.45rem !important; }
+.memoir-child-hub > header > div:first-child > div > span > span { color: #ffe0a9 !important; }
+.memoir-child-hub > main {
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  grid-template-columns: minmax(0, 67rem);
+  grid-template-rows: auto auto 1fr;
+  align-content: center;
+  justify-content: center;
+  min-height: calc(100svh - 5.2rem);
+  padding: 1.8rem 1.5rem 3rem !important;
+}
+.memoir-child-hub > main > h2 {
+  margin: 0 !important;
+  color: #7c3517 !important;
+  font-size: clamp(2.35rem, 4vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.15 !important;
+  text-align: center;
+  text-shadow: 0 3px 0 rgba(255,255,255,.8);
+}
+.memoir-child-hub > main > h2::after {
+  display: inline-block;
+  margin-left: .4rem;
+  color: #ff9516;
+  content: "♥";
+  font-size: .7em;
+  transform: rotate(-14deg) translateY(-.26em);
+}
+.memoir-child-hub > main > p {
+  margin: 1rem auto 1.9rem !important;
+  color: #7a3b1b !important;
+  font-size: clamp(1.05rem, 1.55vw, 1.4rem) !important;
+  font-weight: 800;
+  text-align: center;
+}
+.memoir-child-hub > main > p::after {
+  display: block;
+  width: 3.6rem;
+  height: .28rem;
+  margin: 1rem auto 0;
+  border-radius: 999px;
+  background: #a25022;
+  content: "";
+}
+.memoir-child-hub > main > div.grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+  width: 100%;
+  max-width: 67rem !important;
+}
+.memoir-child-hub > main > div.grid > button {
+  position: relative;
+  min-height: 13.2rem;
+  padding: 2rem 3.8rem 1.35rem 1.75rem !important;
+  border: 1px solid rgba(255,255,255,.9) !important;
+  border-radius: 1.45rem !important;
+  background: linear-gradient(145deg, rgba(246,240,255,.97), rgba(231,223,255,.94)) !important;
+  box-shadow: 0 9px 19px rgba(111,65,28,.13) !important;
+  color: #341c7b !important;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease !important;
+}
+.memoir-child-hub > main > div.grid > button:nth-child(2) { background: linear-gradient(145deg,#eaf7ff,#d8efff) !important; color:#105cad !important; }
+.memoir-child-hub > main > div.grid > button:nth-child(3) { background: linear-gradient(145deg,#effff5,#d8fae9) !important; color:#11745d !important; }
+.memoir-child-hub > main > div.grid > button:nth-child(4) { background: linear-gradient(145deg,#fff7eb,#ffead0) !important; color:#9a4a15 !important; }
+.memoir-child-hub > main > div.grid > button:nth-child(5) { background: linear-gradient(145deg,#fbf8f2,#eee7db) !important; color:#70543b !important; }
+.memoir-child-hub > main > div.grid > button:nth-child(6) { background: linear-gradient(145deg,#fff0f4,#ffdde8) !important; color:#a31349 !important; }
+.memoir-child-hub > main > div.grid > button:hover,
+.memoir-child-hub > main > div.grid > button:focus-visible { z-index:2; transform: translateY(-7px) scale(1.025); box-shadow: 0 16px 28px rgba(109,57,25,.23) !important; }
+.memoir-child-hub > main > div.grid > button > div:first-child {
+  position: absolute;
+  top: 1.65rem;
+  left: 50%;
+  margin: 0 !important;
+  opacity: .88 !important;
+  transform: translateX(-50%) scale(1.75);
+}
+.memoir-child-hub > main > div.grid > button h3 {
+  position: absolute;
+  bottom: 2.55rem;
+  left: 1.75rem;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+}
+.memoir-child-hub > main > div.grid > button p {
+  position: absolute;
+  right: 3.8rem;
+  bottom: 1.35rem;
+  left: 1.75rem;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: .95rem !important;
+  font-weight: 700;
+  line-height: 1.4 !important;
+  opacity: .72 !important;
+}
+.memoir-child-hub > main > div.grid > button::after {
+  position:absolute;
+  right:1.2rem;
+  bottom:1.25rem;
+  display:grid;
+  width:2.55rem;
+  height:2.55rem;
+  place-items:center;
+  border-radius:50%;
+  background: currentColor;
+  box-shadow: 0 4px 9px rgba(49,25,14,.16);
+  color:#fff;
+  content:"›";
+  font-size:2.25rem;
+  font-weight:400;
+  line-height:1;
+}
+@media (max-width: 800px) {
+  .memoir-child-hub > header { padding-inline: 1rem !important; }
+  .memoir-child-hub > main { display:block !important; padding: 2rem 1rem !important; }
+  .memoir-child-hub > main > h2 { font-size: 2.2rem !important; }
+  .memoir-child-hub > main > div.grid { grid-template-columns: 1fr !important; }
+}
+
+/* Large, easy-to-read identity choices for older visitors. */
+.memoir-landing > div:last-child { padding-bottom: 2.4rem !important; }
+.memoir-landing button.flex-1 {
+  min-height: clamp(15.5rem, 24vh, 19rem) !important;
+  padding: 2.2rem 13.5rem 2rem clamp(1.7rem, 2.7vw, 2.7rem) !important;
+}
+.memoir-landing button.flex-1 h3 {
+  font-size: clamp(2rem, 2.85vw, 2.9rem) !important;
+}
+.memoir-landing button.flex-1 p {
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem) !important;
+}
+.memoir-landing button.flex-1::before {
+  width: clamp(9.6rem, 12.5vw, 12.3rem) !important;
+  height: clamp(9.6rem, 12.5vw, 12.3rem) !important;
+}
+.memoir-landing button.flex-1::after {
+  width: 4.2rem !important;
+  height: 4.2rem !important;
+  font-size: 1rem !important;
+}
+
+@media (max-width: 900px) {
+  .memoir-landing { grid-template-rows: auto minmax(15rem, 1fr) auto; padding-inline: 1.5rem !important; }
+  .memoir-landing > p { grid-column: 6 / 13; }
+  .memoir-landing > p::before { font-size: clamp(2.45rem, 5.4vw, 4.1rem); }
+  .memoir-landing button.flex-1 { padding-right: 9.5rem !important; }
+  .memoir-landing button.flex-1::before { right: 1rem; width: 7.7rem; height: 7.7rem; }
+}
+
+@media (max-width: 680px) {
+  .memoir-landing { display: flex !important; min-height: 100vh; gap: 1.1rem; padding: 1.25rem 1rem 1.5rem !important; }
+  .memoir-landing::before { background-position: 31% center; }
+  .memoir-landing > h1 { font-size: 1.35rem !important; }
+  .memoir-landing > h1::after { display: none; }
+  .memoir-landing > p { width: 100%; margin: 0 !important; padding: 14rem .4rem 0; text-align: center; }
+  .memoir-landing > p::before { font-size: clamp(2.5rem, 12vw, 3.9rem); }
+  .memoir-landing > p::after { margin-inline: auto; font-size: 1rem; }
+  .memoir-landing > div:last-child { grid-template-columns: 1fr; padding-bottom: 1.5rem; }
+  .memoir-landing button.flex-1 { min-height: 10.5rem; padding: 1.45rem 9rem 1.35rem 1.35rem !important; }
+  .memoir-landing button.flex-1::before { right: .85rem; width: 6.8rem; height: 6.8rem; }
+}
+
+/* Elderly memoir home: keep the existing carousel behavior inside a film-strip layout. */
+#app-root > div > div:has(> header + main button[aria-label]) {
+  min-height: 100vh !important;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 248, 225, .26), rgba(255, 246, 217, .12), rgba(255, 250, 232, .3)),
+    url("/assets/memoir-gallery-room.png") center / cover !important;
+  color: #512713;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > header {
+  width: min(94vw, 96rem);
+  min-height: 7.8rem;
+  margin: 1.25rem auto 0;
+  padding: 1.05rem clamp(1.35rem, 3vw, 3.4rem) !important;
+  border: 2px solid rgba(255, 211, 130, .5);
+  border-radius: 1.55rem;
+  background: linear-gradient(105deg, #a94c18, #c96423 46%, #8f3c13) !important;
+  box-shadow: 0 12px 28px rgba(91, 39, 13, .22);
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > header h1 {
+  position: absolute;
+  left: 50%;
+  margin: 0 !important;
+  color: #fff7e7 !important;
+  font-size: clamp(2rem, 4vw, 3.6rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .1em !important;
+  line-height: 1.1 !important;
+  text-shadow: 0 3px 0 rgba(91, 39, 13, .28);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > header h1::after {
+  display: block;
+  margin-top: .35rem;
+  color: #ffe2ae;
+  content: "\2014\2014  \8BB0\5F55\7F8E\597D\4EBA\751F  \7559\4F4F\6E29\6696\56DE\5FC6  \2014\2014";
+  font-size: clamp(.68rem, 1.15vw, .95rem);
+  font-weight: 800;
+  letter-spacing: .23em;
+  text-align: center;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > header button {
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(255, 215, 145, .45) !important;
+  border-radius: 1.1rem !important;
+  background: #ec8419 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 4px 0 rgba(111, 47, 13, .22);
+  color: #fff8e9 !important;
+  font-size: 1.05rem !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > main {
+  width: min(96vw, 105rem) !important;
+  max-width: none !important;
+  padding: clamp(2rem, 4vw, 3.6rem) 0 2.5rem !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > main > div {
+  width: min(100%, 81rem) !important;
+  margin: 0 auto 1.65rem !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative {
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child {
+  padding: 1.1rem 1.3rem !important;
+  border: 4px solid #763512;
+  border-radius: 2.5rem !important;
+  background: linear-gradient(135deg, #9a4d1c, #57260f 50%, #864017) !important;
+  box-shadow: 0 14px 0 rgba(101, 47, 15, .21), 0 24px 36px rgba(93, 46, 18, .25) !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:first-child,
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:last-child {
+  height: 1.15rem;
+  margin: 0 .2rem !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:first-child > div,
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:last-child > div {
+  width: 1.1rem !important;
+  height: .78rem !important;
+  border-radius: .16rem !important;
+  background: #f7dca8 !important;
+  box-shadow: inset 0 -2px 0 rgba(100, 51, 19, .18);
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:nth-child(2) {
+  padding: .75rem !important;
+  border: 3px solid #d79248;
+  border-radius: 1.3rem !important;
+  background: rgba(47, 20, 9, .42) !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:nth-child(2) > div {
+  height: clamp(14rem, 24vw, 21rem) !important;
+  gap: clamp(.65rem, 1vw, 1rem) !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:nth-child(2) > div > div > div {
+  width: clamp(11rem, 17vw, 16rem) !important;
+  height: 100%;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:nth-child(2) > div > div > div > div {
+  height: 100%;
+  padding: .45rem !important;
+  border: 2px solid #f8ead1;
+  border-radius: .95rem !important;
+  background: #fff9ed !important;
+  box-shadow: 0 5px 12px rgba(39, 16, 5, .3) !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative img {
+  border-radius: .62rem !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative img + div {
+  padding: .72rem .35rem .5rem !important;
+  background: #fff9ed !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative img + div p {
+  color: #703719 !important;
+  font-size: clamp(1rem, 1.4vw, 1.35rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:last-child {
+  margin-top: 1.35rem !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:last-child button {
+  width: .92rem !important;
+  height: .92rem !important;
+  border-radius: 999px !important;
+  background: #eec17d !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:last-child button[class*="amber-600"] {
+  width: 2.75rem !important;
+  background: #ef8418 !important;
+}
+
+#app-root > div > div:has(> header + main button[aria-label]) > main > button {
+  min-width: min(86vw, 31rem);
+  padding: 1.05rem 2.6rem !important;
+  border: 3px solid #ffe1a1 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #ff9d28, #e9650b) !important;
+  box-shadow: 0 8px 0 rgba(151, 68, 14, .22), 0 15px 26px rgba(130, 62, 18, .22) !important;
+  color: #fffdf4 !important;
+  font-size: clamp(1.35rem, 2.2vw, 2rem) !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> header + main button[aria-label]) > header { width: calc(100% - 1.5rem); min-height: 5.8rem; margin-top: .75rem; }
+  #app-root > div > div:has(> header + main button[aria-label]) > header h1 { position: static; font-size: 1.55rem !important; transform: none; }
+  #app-root > div > div:has(> header + main button[aria-label]) > header h1::after { display: none; }
+  #app-root > div > div:has(> header + main button[aria-label]) > header button { padding: .62rem .8rem !important; font-size: .85rem !important; }
+  #app-root > div > div:has(> header + main button[aria-label]) > main { padding-top: 1.5rem !important; }
+  #app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child { padding: .75rem !important; border-radius: 1.3rem !important; }
+  #app-root > div > div:has(> header + main button[aria-label]) main > div > div.relative > div:first-child > div:nth-child(2) > div { height: 17rem !important; }
+}
+
+/* Function menu: the original six actions remain, presented as a calm large-card dashboard. */
+#app-root > div > div:has(> div.fixed + div > header) {
+  min-height: 100vh;
+  background: #fff3d5;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed {
+  background: linear-gradient(180deg, #5e280e, #8b4217) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div {
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 248, 229, .72), rgba(255, 243, 212, .78)),
+    url("/assets/memoir-gallery-room.png") center / cover !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header {
+  position: relative;
+  min-height: 5.7rem;
+  padding: .9rem clamp(1.15rem, 3vw, 3.5rem) !important;
+  background: linear-gradient(100deg, #9a4b20, #bc5e28 55%, #8e4019) !important;
+  box-shadow: 0 5px 16px rgba(98, 47, 18, .23);
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 !important;
+  color: #fff9ec !important;
+  font-size: clamp(1.5rem, 2.7vw, 2.35rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .1em !important;
+  text-shadow: 0 2px 0 rgba(91, 37, 11, .3);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::before,
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::after {
+  color: #f5bd69;
+  content: "\266A";
+  font-size: .72em;
+  vertical-align: .15em;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::before { margin-right: .7rem; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::after { margin-left: .7rem; }
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:first-child button {
+  border-radius: 50% !important;
+  background: rgba(84, 35, 11, .2) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:first-child button + button {
+  border-radius: .8rem !important;
+  background: transparent !important;
+  color: #ffdf9a !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:last-child {
+  width: 3.6rem !important;
+  height: 3.6rem !important;
+  border: 3px solid rgba(255, 248, 229, .94) !important;
+  box-shadow: 0 3px 8px rgba(86, 35, 10, .24);
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child {
+  padding: clamp(1.8rem, 3.2vw, 3.2rem) clamp(1.5rem, 4vw, 5rem) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div {
+  max-width: 94rem !important;
+  gap: clamp(1.2rem, 2vw, 2rem) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button {
+  aspect-ratio: 1.36 / 1 !important;
+  overflow: hidden;
+  border: 4px solid rgba(255, 252, 241, .96) !important;
+  border-radius: 1.45rem !important;
+  background: #fff8e8;
+  box-shadow: 0 9px 0 rgba(128, 69, 26, .15), 0 16px 28px rgba(113, 59, 18, .16) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:hover {
+  box-shadow: 0 13px 0 rgba(128, 69, 26, .13), 0 22px 33px rgba(113, 59, 18, .21) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:focus-visible {
+  outline: 4px solid rgba(237, 134, 36, .55);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2 { position: static; font-size: 1.12rem !important; transform: none; white-space: normal; text-align: center; }
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::before,
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > h2::after { display: none; }
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > header > div:last-child { width: 2.8rem !important; height: 2.8rem !important; }
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child { padding: 1.15rem !important; }
+  #app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div { grid-template-columns: 1fr !important; }
+}
+
+/* Card artwork is deliberately text-free; large labels remain crisp as real interface text. */
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button > div {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(255, 249, 229, .94) 0%, rgba(255, 248, 226, .75) 36%, rgba(255, 248, 226, .05) 67%) !important;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button::after {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1rem, 2vw, 1.7rem);
+  left: clamp(1rem, 2vw, 1.7rem);
+  color: #4c2410;
+  width: 62%;
+  font-family: "YouYuan", "幼圆", "Microsoft YaHei", sans-serif;
+  font-size: clamp(2.7rem, 4.1vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: .03em;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-shadow: 0 2px 0 rgba(255,255,255,.75);
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button::before {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.05rem;
+  left: clamp(1rem, 2vw, 1.7rem);
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border: 3px solid rgba(255,255,247,.9);
+  border-radius: 50%;
+  background: #ef9d35;
+  box-shadow: 0 4px 0 rgba(156, 76, 23, .15);
+  color: #fff;
+  content: "\203A";
+  font-family: Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(1)::after { content: "\76F4\63A5\5F55\5236"; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(2)::after { content: "\6A21\62DF\804A\5929"; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(3)::after { content: "\6211\7684\56DE\5FC6"; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(4)::after { content: "\5927\4E8B\5E74\8868"; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(5)::after { content: "\8D44\6599\8BBE\7F6E"; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(6)::after { content: "\5B9A\5236\5E73\53F0"; }
+
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button > img { opacity: 0; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(1) { background-image: url("/assets/memoir-action-record.png?v=1") !important; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(2) { background-image: url("/assets/memoir-action-chat.png?v=1") !important; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(3) { background-image: url("/assets/memoir-action-album.png?v=1") !important; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(4) { background-image: url("/assets/memoir-action-timeline.png?v=1") !important; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(5) { background-image: url("/assets/memoir-action-settings.png?v=1") !important; }
+#app-root > div > div:has(> div.fixed + div > header) > div.fixed + div > div:last-child > div > button:nth-child(6) { background-image: url("/assets/memoir-action-platform.png?v=1") !important; }
+
+/* Recording page: same controls, rebuilt as a generous, calm recording surface. */
+#app-root > div > div:has(> header + main button.relative.w-40) {
+  background:
+    linear-gradient(rgba(255, 250, 234, .72), rgba(255, 247, 220, .78)),
+    url("/assets/memoir-gallery-room.png") center / cover !important;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header {
+  min-height: 5.3rem;
+  padding: .85rem clamp(1.2rem, 3vw, 3.4rem) !important;
+  border-bottom: 1px solid rgba(187, 117, 43, .23);
+  background: rgba(255, 252, 241, .88) !important;
+  box-shadow: 0 3px 12px rgba(115, 65, 24, .12);
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header h2 {
+  position: absolute;
+  left: 50%;
+  margin: 0 !important;
+  color: #813b16 !important;
+  font-size: clamp(1.45rem, 2vw, 2.1rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > header button {
+  border-radius: 999px !important;
+  background: #fff0b9 !important;
+  color: #92451b !important;
+  font-size: 1.05rem !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main {
+  padding: clamp(1.6rem, 3vw, 3.2rem) 1.25rem !important;
+  align-items: flex-start;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl {
+  width: min(100%, 62rem) !important;
+  max-width: none !important;
+  min-height: min(43rem, calc(100vh - 9.4rem));
+  padding: clamp(1.55rem, 4vw, 3.1rem) !important;
+  border: 2px solid rgba(255, 255, 250, .95) !important;
+  border-radius: 2.25rem !important;
+  background: rgba(255, 253, 246, .9) !important;
+  box-shadow: 0 18px 42px rgba(111, 61, 21, .17) !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:first-child {
+  max-width: 44rem;
+  margin: 0 auto 2.25rem !important;
+  padding: .34rem !important;
+  border-radius: 1.25rem !important;
+  background: #fff2ca !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:first-child button {
+  min-height: 3.85rem;
+  border-radius: 1rem !important;
+  font-size: clamp(1.08rem, 1.7vw, 1.4rem) !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:first-child button:first-child {
+  background: linear-gradient(135deg, #ffae30, #ed8418) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(209, 105, 19, .23) !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:nth-child(2) {
+  padding-top: .4rem;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl h3 {
+  color: #643014 !important;
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem) !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl p {
+  color: #844420 !important;
+  font-size: clamp(1rem, 1.45vw, 1.22rem) !important;
+  font-weight: 700;
+  line-height: 1.6 !important;
+}
+
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl button.relative.w-40 {
+  width: clamp(11.5rem, 18vw, 14.5rem) !important;
+  height: clamp(11.5rem, 18vw, 14.5rem) !important;
+  margin: 1.7rem auto !important;
+  border: 7px solid rgba(255,255,248,.95);
+  background: linear-gradient(145deg, #ff7b48, #ff4f2e) !important;
+  box-shadow: 0 0 0 13px rgba(255, 126, 61, .12), 0 13px 25px rgba(183, 69, 26, .25) !important;
+  font-size: 1.45rem !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 680px) {
+  #app-root > div > div:has(> header + main button.relative.w-40) > header h2 { position: static; font-size: 1.35rem !important; transform: none; }
+  #app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl { min-height: 0; border-radius: 1.4rem !important; }
+}
+
+/* Exact recording-screen composition. */
+#app-root > div > div:has(> header + main button.relative.w-40) {
+  position: relative;
+  background: #fff8e8 !important;
+}
+#app-root > div > div:has(> header + main button.relative.w-40)::before {
+  position: absolute;
+  right: 4.5vw;
+  top: 26%;
+  z-index: 0;
+  color: #d79052;
+  content: "\6BCF\4E00\6BB5\56DE\5FC6\A \90FD\662F\73CD\8D35\7684\793C\7269";
+  font-size: clamp(1.1rem, 1.65vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: .13em;
+  line-height: 1.75;
+  text-align: center;
+  white-space: pre;
+  transform: rotate(-10deg);
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > header {
+  min-height: 5.25rem;
+  background: #fffdf8 !important;
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > main { position: relative; z-index: 1; padding-top: 1.55rem !important; }
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl {
+  width: min(100%, 62.5rem) !important;
+  min-height: min(47rem, calc(100vh - 7.5rem));
+  padding: 2.7rem 5rem !important;
+  border-radius: 2.45rem !important;
+  background: rgba(255,255,255,.83) !important;
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:first-child { margin-bottom: 2rem !important; }
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:nth-child(2)::before {
+  display: block;
+  margin-bottom: 1.25rem;
+  color: #653015;
+  content: "\70B9\51FB\4E0B\65B9\6309\94AE\5F00\59CB\5F55\97F3\5427";
+  font-size: clamp(1.55rem, 2.25vw, 2.15rem);
+  font-weight: 900;
+  line-height: 1.2;
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:nth-child(2) > h3 { display: none !important; }
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:nth-child(2) > p { font-size: 0 !important; }
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl > div > div:nth-child(2) > p::after {
+  color: #844420;
+  content: "\60A8\53EF\4EE5\50CF\548C\5BB6\4EBA\804A\5929\4E00\6837\FF0C\8BF4\51FA\60A8\60F3\8BB0\5F55\7684\56DE\5FC6\3002\A \5F55\97F3\5B8C\6210\540E\FF0C\6211\4F1A\5E2E\60A8\6574\7406\6210\4F18\7F8E\7684\6587\5B57\3002";
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl button.relative.w-40::before,
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl button.relative.w-40::after {
+  position: absolute;
+  top: 50%;
+  width: 12rem;
+  height: 4.3rem;
+  content: "";
+  background: repeating-linear-gradient(90deg, transparent 0 12px, rgba(255, 132, 87, .35) 12px 18px, transparent 18px 27px);
+  transform: translateY(-50%);
+}
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl button.relative.w-40::before { right: calc(100% + 2.2rem); }
+#app-root > div > div:has(> header + main button.relative.w-40) > main > div.rounded-3xl button.relative.w-40::after { left: calc(100% + 2.2rem); }
+
+/* Chat guide: fixed six-card reference layout. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) {
+  position: relative;
+  overflow: hidden;
+  background: url("/assets/chat-guide-surface.png") center / cover no-repeat !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > header {
+  opacity: 0;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main {
+  position: absolute;
+  inset: 0;
+  display: block !important;
+  max-width: none !important;
+  padding: 31.9vh 20.2vw 4.1vh !important;
+  overflow: hidden !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div:first-child {
+  display: none !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid {
+  display: grid !important;
+  height: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1.7% !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button * {
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 1.25rem !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(n+7) {
+  display: none !important;
+}
+
+/* Timeline: the approved two-action layout. */
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) {
+  position: relative;
+  overflow: hidden;
+  background: url("/assets/timeline-surface.png") center / cover no-repeat !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > header {
+  opacity: 0;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main {
+  position: absolute;
+  inset: 0;
+  display: block !important;
+  max-width: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div:not(.flex.items-center.justify-center.gap-4) {
+  display: none !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div.flex.items-center.justify-center.gap-4 {
+  position: absolute;
+  top: 31.9vh;
+  left: 29.4vw;
+  display: grid !important;
+  width: 41.4vw;
+  height: 7.7vh;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.85vw !important;
+  margin: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0;
+}
+
+/* Explicit page marker keeps the timeline layout stable after navigation. */
+#app-root > div > div.memoir-timeline {
+  position: relative;
+  overflow: hidden;
+  background: url("/assets/timeline-surface.png") center / cover no-repeat !important;
+}
+#app-root > div > div.memoir-timeline > header { opacity: 0 !important; }
+#app-root > div > div.memoir-timeline > main {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  max-width: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+#app-root > div > div.memoir-timeline > main > div {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div:not(.flex.items-center.justify-center.gap-4) { display: none !important; }
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 {
+  position: absolute !important;
+  top: 31.9vh !important;
+  left: 29.4vw !important;
+  display: grid !important;
+  width: 41.4vw !important;
+  height: 7.7vh !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.85vw !important;
+  margin: 0 !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+}
+
+/* Fallback: never hide the real timeline interface. */
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4),
+#app-root > div > div.memoir-timeline {
+  position: static !important;
+  overflow: visible !important;
+  background: #fff8dc !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > header,
+#app-root > div > div.memoir-timeline > header { opacity: 1 !important; }
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main,
+#app-root > div > div.memoir-timeline > main {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  max-width: 64rem !important;
+  padding: 1.5rem !important;
+  overflow: auto !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div,
+#app-root > div > div.memoir-timeline > main > div {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div:not(.flex.items-center.justify-center.gap-4),
+#app-root > div > div.memoir-timeline > main > div > div:not(.flex.items-center.justify-center.gap-4) { display: block !important; }
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div.flex.items-center.justify-center.gap-4,
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: flex !important;
+  width: auto !important;
+  height: auto !important;
+  margin-bottom: 2rem !important;
+}
+#app-root > div > div:has(> header + main > div > div.flex.items-center.justify-center.gap-4) > main > div > div.flex.items-center.justify-center.gap-4 > button,
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  width: auto !important;
+  height: auto !important;
+  padding: 1rem 1.5rem !important;
+  opacity: 1 !important;
+}
+
+/* Final timeline control layer. This must stay last so older repair rules cannot fade it. */
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  min-width: 18rem !important;
+  min-height: 5rem !important;
+  padding: 1rem 1.75rem !important;
+  border: 0 !important;
+  border-radius: 1.35rem !important;
+  color: #ffffff !important;
+  font-size: 1.45rem !important;
+  font-weight: 800 !important;
+  box-shadow: 0 10px 20px rgba(129, 73, 27, .2) !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:first-child {
+  background: linear-gradient(135deg, #ffb443, #ff7a19) !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:last-child {
+  background: linear-gradient(135deg, #e59a3c, #a85f18) !important;
+}
+
+/* Keep the original timeline controls visible and usable. */
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  min-width: 18rem !important;
+  min-height: 5rem !important;
+  padding: 1rem 1.75rem !important;
+  border: 0 !important;
+  border-radius: 1.35rem !important;
+  color: #ffffff !important;
+  font-size: 1.45rem !important;
+  font-weight: 800 !important;
+  box-shadow: 0 10px 20px rgba(129, 73, 27, .2) !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:first-child {
+  background: linear-gradient(135deg, #ffb443, #ff7a19) !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:last-child {
+  background: linear-gradient(135deg, #e59a3c, #a85f18) !important;
+}
+
+
+/* The scene stays fixed while the six companion cards are real hoverable layers. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) {
+  background: url("/assets/chat-guide-frame.png") center / cover no-repeat !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button {
+  opacity: 1 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  box-shadow: none !important;
+  transform: scale(1) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button * {
+  opacity: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(1) { background-image: url("/assets/chat-companion-1.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(2) { background-image: url("/assets/chat-companion-2.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(3) { background-image: url("/assets/chat-companion-3.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(4) { background-image: url("/assets/chat-companion-4.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(5) { background-image: url("/assets/chat-companion-5.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:nth-child(6) { background-image: url("/assets/chat-companion-6.png") !important; }
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:hover,
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button:focus-visible {
+  z-index: 5;
+  box-shadow: 0 12px 22px rgba(101, 55, 23, .24) !important;
+  transform: scale(1.04) !important;
+}
+
+/* Keep the approved chat-card artwork, but let the page fit real browser heights. */
+#app-root > div > div:has(> header + main > div > div.grid > button h4) {
+  min-height: 100svh;
+  overflow: auto !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > header {
+  position: relative;
+  z-index: 10;
+  min-height: 5.25rem;
+  opacity: 1 !important;
+  background: rgba(130, 70, 34, .92) !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main {
+  position: relative !important;
+  inset: auto !important;
+  width: min(100%, 78rem) !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 1.65rem 1.25rem 2.25rem !important;
+  overflow: visible !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div {
+  height: auto !important;
+  min-height: 0 !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid {
+  height: auto !important;
+  gap: 1rem !important;
+}
+#app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid > button {
+  aspect-ratio: 1.28 / 1;
+  overflow: visible !important;
+}
+@media (max-width: 760px) {
+  #app-root > div > div:has(> header + main > div > div.grid > button h4) > main { padding: 1rem !important; }
+  #app-root > div > div:has(> header + main > div > div.grid > button h4) > main > div > div.grid { grid-template-columns: 1fr !important; }
+}
+
+/* Memoir shelf: a calm, readable library for saved stories. */
+#app-root > div > div.memoir-shelf {
+  background: linear-gradient(rgba(255, 248, 232, .8), rgba(255, 248, 232, .9)), url("/assets/memoir-gallery-room.png") center / cover !important;
+}
+#app-root > div > div.memoir-shelf > header {
+  min-height: 5.4rem;
+  padding: .85rem 2rem !important;
+  background: rgba(255, 253, 247, .94) !important;
+  border-bottom: 1px solid rgba(185, 111, 37, .2) !important;
+}
+#app-root > div > div.memoir-shelf > header h2 {
+  position: absolute;
+  left: 50%;
+  margin: 0 !important;
+  color: #803b17 !important;
+  font-size: clamp(1.6rem, 2.4vw, 2.35rem) !important;
+  font-weight: 900 !important;
+  transform: translateX(-50%);
+}
+#app-root > div > div.memoir-shelf > main {
+  max-width: 78rem !important;
+  padding: 2rem !important;
+}
+#app-root > div > div.memoir-shelf > main > div {
+  min-height: 38rem;
+  padding: 2.25rem !important;
+  border: 2px solid rgba(255,255,255,.95) !important;
+  border-radius: 2rem !important;
+  background: rgba(255,255,255,.9) !important;
+  box-shadow: 0 18px 36px rgba(101,57,22,.14) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button {
+  min-height: 4.5rem;
+  border-radius: 1rem !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button:hover {
+  box-shadow: 0 9px 18px rgba(129, 73, 27, .18);
+  transform: translateY(-3px);
+}
+#app-root > div > div.memoir-shelf > main input {
+  height: 4.3rem !important;
+  margin: 2rem 0 !important;
+  border: 2px solid #f5dca5 !important;
+  border-radius: 1rem !important;
+  background: #fffcf4 !important;
+  font-size: 1.2rem !important;
+}
+#app-root > div > div.memoir-shelf > main input::placeholder { color: #b99c72; }
+#app-root > div > div.memoir-shelf > main > div > div:last-child {
+  min-height: 20rem;
+  color: #a69275 !important;
+}
+
+/* The memoir library follows the same home-like rhythm as the other completed pages. */
+#app-root > div > div.memoir-shelf {
+  background: linear-gradient(90deg, rgba(255,248,229,.72), rgba(255,250,240,.88), rgba(255,247,225,.74)), url("/assets/memoir-gallery-room.png") center / cover !important;
+}
+#app-root > div > div.memoir-shelf > header h2::after {
+  content: "";
+  display: block;
+  width: 7.2rem;
+  height: .18rem;
+  margin: .3rem auto 0;
+  border-radius: 999px;
+  background: #f4a02b;
+}
+#app-root > div > div.memoir-shelf > main {
+  display: flex !important;
+  align-items: center;
+  max-width: 68rem !important;
+  padding: 1.6rem !important;
+}
+#app-root > div > div.memoir-shelf > main > div {
+  min-height: 42rem;
+  padding: 1.9rem 2.35rem !important;
+  border-radius: 2.2rem !important;
+  background: rgba(255,255,255,.91) !important;
+  box-shadow: 0 18px 38px rgba(102,60,23,.16) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button {
+  position: relative;
+  min-height: 6.1rem;
+  padding: 1.1rem 2.5rem 1.1rem 1.25rem !important;
+  border-width: 1px !important;
+  border-radius: 1.35rem !important;
+  text-align: left !important;
+  font-size: 1.35rem !important;
+  line-height: 1.2 !important;
+  box-shadow: 0 5px 13px rgba(118,76,34,.08) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button::after {
+  content: "›";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(-54%);
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button:nth-child(1) {
+  color: #8a5321 !important;
+  border-color: #e7c089 !important;
+  background: linear-gradient(135deg,#fff7ec,#ffeccf) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button:nth-child(2) {
+  color: #7a5a2a !important;
+  border-color: #e3d2b0 !important;
+  background: linear-gradient(135deg,#fdf6ea,#f6ecd8) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button:nth-child(3) {
+  color: #9a5a2a !important;
+  border-color: #e6c39c !important;
+  background: linear-gradient(135deg,#fff1e6,#ffe6d2) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div:first-child button:hover { transform: translateY(-3px) scale(1.015); }
+#app-root > div > div.memoir-shelf > main input {
+  height: 4rem !important;
+  margin: 1.75rem 0 .6rem !important;
+  padding-left: 4rem !important;
+  border: 1px solid #f5e2bb !important;
+  border-radius: 2rem !important;
+  background: #fffdf7 !important;
+  box-shadow: inset 0 1px 2px rgba(143,88,30,.04) !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div.flex-1.flex.flex-col {
+  position: relative;
+  min-height: 25rem !important;
+  padding-top: 12.75rem !important;
+  color: #a56526 !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div.flex-1.flex.flex-col::before {
+  content: "";
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  width: 13rem;
+  height: 8.2rem;
+  border: .45rem solid #bd7440;
+  border-radius: .6rem 1.15rem 1.15rem .6rem;
+  background: linear-gradient(90deg, #f8e2bb 0 49%, #fffaf0 49% 51%, #f7e3c0 51%);
+  box-shadow: 0 10px 17px rgba(125,74,29,.16), inset 0 0 0 .55rem rgba(255,250,239,.74);
+  transform: translateX(-50%) rotate(-3deg);
+}
+#app-root > div > div.memoir-shelf > main > div > div.flex-1.flex.flex-col::after {
+  content: "回忆不老，生活很暖  ♥";
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  z-index: 1;
+  width: 10rem;
+  color: #bd794d;
+  font-family: KaiTi, STKaiti, serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: center;
+  transform: translateX(-2%);
+}
+#app-root > div > div.memoir-shelf > main > div > div.flex-1.flex.flex-col p:first-of-type {
+  color: #8d461c !important;
+  font-size: 1.8rem !important;
+  font-weight: 900 !important;
+}
+#app-root > div > div.memoir-shelf > main > div > div.flex-1.flex.flex-col p:nth-of-type(2) {
+  color: #a79b8a !important;
+  font-size: 1.12rem !important;
+}
+@media (max-width: 760px) {
+  #app-root > div > div.memoir-shelf > main { padding: 1rem !important; }
+  #app-root > div > div.memoir-shelf > main > div { padding: 1rem !important; }
+  #app-root > div > div.memoir-shelf > main > div > div:first-child { grid-template-columns: 1fr; }
+}
+
+/* Timeline repair: retain its warm palette, never hide its real controls or empty state. */
+#app-root > div > div.memoir-timeline {
+  min-height: 100svh !important;
+  overflow: auto !important;
+  background: linear-gradient(rgba(255,248,231,.82), rgba(255,248,231,.9)), url("/assets/memoir-gallery-room.png") center / cover !important;
+}
+#app-root > div > div.memoir-timeline > header {
+  position: relative !important;
+  display: flex !important;
+  min-height: 5.25rem;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#app-root > div > div.memoir-timeline > main {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  max-width: 64rem !important;
+  min-height: calc(100svh - 5.25rem);
+  padding: 2rem 1.5rem !important;
+  overflow: visible !important;
+}
+#app-root > div > div.memoir-timeline > main > div {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 31rem;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+  border: 2px solid rgba(255,255,255,.95) !important;
+  border-radius: 2rem !important;
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 18px 36px rgba(101,57,22,.14) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#app-root > div > div.memoir-timeline > main > div > * { opacity: 1 !important; visibility: visible !important; }
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: flex !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 1.5rem 0 2rem !important;
+}
+#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  width: auto !important;
+  height: auto !important;
+  padding: 1rem 1.5rem !important;
+  opacity: 1 !important;
+}
+
+

@@ -1,0 +1,9 @@
+Memoir Assistant
+Copyright 2026 Open Source Contributors
+
+This product includes software developed by the Memoir open source community
+and is licensed under the Apache License, Version 2.0.
+
+Original project: LeoSian/Memoir on ModelScope, Apache License 2.0.
+This fork contains substantial modifications: brand and deployment
+information removed, configurable port, documentation rewritten.

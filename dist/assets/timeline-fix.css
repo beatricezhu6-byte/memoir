@@ -1,0 +1,280 @@
+/* Hand-built timeline empty state. All labels and controls remain real DOM. */
+#app-root button[data-magnifier-toggle="true"] {
+  position: fixed !important;
+  top: auto !important;
+  right: 1.5rem !important;
+  bottom: 1.5rem !important;
+  left: auto !important;
+  z-index: 9999 !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline {
+  min-height: 100svh !important;
+  overflow: auto !important;
+  background:
+    linear-gradient(rgba(255, 248, 231, .20), rgba(255, 248, 231, .20)),
+    url("/assets/memoir-gallery-room.png") center / cover fixed !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > header {
+  position: relative !important;
+  display: flex !important;
+  min-height: 5.25rem !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(255, 253, 247, .88) !important;
+  box-shadow: 0 2px 10px rgba(122, 73, 24, .1) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+  max-width: 68rem !important;
+  min-height: calc(100svh - 5.25rem) !important;
+  padding: 2rem 1.5rem !important;
+  overflow: visible !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div {
+  min-height: 39rem !important;
+  padding: 2rem 2.35rem !important;
+  border: 2px solid rgba(255, 255, 255, .95) !important;
+  border-radius: 2rem !important;
+  background: rgba(255, 253, 247, .93) !important;
+  box-shadow: 0 18px 38px rgba(116, 70, 27, .14) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div:first-child {
+  padding: 1.25rem 2rem !important;
+  border: 1px solid #f4dfb7 !important;
+  border-radius: 1.2rem !important;
+  background: linear-gradient(135deg, #fff5d9, #fffbf1) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 1.5rem 0 1.1rem !important;
+  gap: 1.5rem !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button {
+  min-width: 18rem !important;
+  min-height: 4.8rem !important;
+  padding: .9rem 1.6rem !important;
+  border: 0 !important;
+  border-radius: 1.25rem !important;
+  color: #ffffff !important;
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+  box-shadow: 0 10px 19px rgba(123, 74, 28, .2) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:first-child {
+  background: linear-gradient(135deg, #ffb443, #ff7a19) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:last-child {
+  background: linear-gradient(135deg, #e59a3c, #a85f18) !important;
+}
+
+#app-root#app-root .timeline-decoration {
+  position: relative;
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+  flex: none !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  height: 12.5rem !important;
+  min-height: 12.5rem !important;
+  max-height: 12.5rem !important;
+  gap: 1.1rem;
+  margin: .2rem auto 1rem;
+  padding: 1rem 1rem 2.4rem;
+}
+
+#app-root#app-root .timeline-decoration::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  bottom: 1.1rem;
+  left: 8%;
+  height: 1.6rem;
+  border-top: 3px dashed #f5ac5a;
+  border-radius: 50%;
+}
+
+#app-root#app-root .timeline-memory-card,
+#app-root#app-root .timeline-notebook {
+  position: relative;
+  z-index: 1;
+  width: 8.3rem;
+  padding: .55rem .55rem .75rem;
+  border: 1px solid #eddbbc;
+  border-radius: .35rem;
+  background: #fffdf8;
+  box-shadow: 0 7px 14px rgba(116, 74, 32, .13);
+  color: #87552f;
+  text-align: center;
+}
+
+#app-root#app-root .timeline-memory-card:nth-child(1) { transform: rotate(-8deg) translateY(.5rem); }
+#app-root#app-root .timeline-memory-card:nth-child(2) { transform: rotate(-2deg); }
+#app-root#app-root .timeline-memory-card:nth-child(4) { transform: rotate(3deg); }
+#app-root#app-root .timeline-memory-card:nth-child(5) { transform: rotate(8deg) translateY(.5rem); }
+
+#app-root#app-root .timeline-photo {
+  display: block;
+  height: 5.7rem;
+  margin-bottom: .45rem;
+  border: .22rem solid #f6eee0;
+  background-color: #d7b581;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#app-root#app-root .timeline-memory-card:nth-child(1) .timeline-photo { background-image: url("/assets/baby-pBv9SGC4.png"); }
+#app-root#app-root .timeline-memory-card:nth-child(2) .timeline-photo { background-image: url("/assets/child-f5e-76RL.png"); }
+#app-root#app-root .timeline-memory-card:nth-child(4) .timeline-photo { background-image: url("/assets/family-CD_BlvZp.png"); }
+#app-root#app-root .timeline-memory-card:nth-child(5) .timeline-photo { background-image: url("/assets/elderly-CXFT-HLW.png"); }
+#app-root#app-root .timeline-caption { display: block; font-weight: 800; font-size: .88rem; }
+
+#app-root#app-root .timeline-notebook {
+  width: 9rem;
+  min-height: 7.8rem;
+  padding-top: 1.35rem;
+  background: repeating-linear-gradient(0deg, #fff8e8, #fff8e8 1.3rem, #f1ddb9 1.35rem) !important;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+#app-root#app-root .timeline-notebook::before {
+  content: "";
+  position: absolute;
+  top: -.42rem;
+  right: .65rem;
+  left: .65rem;
+  height: .5rem;
+  background: repeating-linear-gradient(90deg, #a66b3c, #a66b3c .35rem, transparent .35rem, transparent 1.1rem);
+}
+
+#app-root#app-root .timeline-note {
+  display: grid !important;
+  gap: .45rem;
+  margin: .1rem auto 0 !important;
+  color: #81431d;
+  text-align: center;
+}
+
+#app-root#app-root .timeline-note strong { font-size: 1.35rem; }
+#app-root#app-root .timeline-note span { color: #a39178; font-size: 1rem; }
+
+/* Compact the timeline into one calm, readable screen. */
+#app-root#app-root > div > div.memoir-timeline {
+  height: 100svh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(rgba(255, 248, 231, .42), rgba(255, 248, 231, .42)),
+    url("/assets/memoir-gallery-room.png") center / cover fixed !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main {
+  max-width: 78rem !important;
+  height: calc(100svh - 5.25rem) !important;
+  min-height: 0 !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 1.45rem 2.2rem !important;
+  background: rgba(255, 253, 248, .97) !important;
+  box-shadow: 0 14px 28px rgba(116, 70, 27, .12) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > svg {
+  display: none !important;
+}
+
+/* Hide the original empty-state block; the timeline preview above replaces it. */
+#app-root#app-root > div > div.memoir-timeline > main > div > div.text-center.py-12.flex.flex-col.items-center.text-gray-400 {
+  display: none !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 {
+  margin: 1.05rem 0 .65rem !important;
+}
+
+#app-root#app-root .timeline-preview-copy {
+  display: grid !important;
+  justify-items: center !important;
+  gap: .18rem !important;
+  margin: .15rem auto 0 !important;
+  color: #7f421e !important;
+  text-align: center !important;
+}
+
+#app-root#app-root .timeline-preview-copy strong {
+  font-size: 1.08rem !important;
+  font-weight: 800 !important;
+}
+
+#app-root#app-root .timeline-preview-copy span {
+  color: #aa9275 !important;
+  font-size: .88rem !important;
+}
+
+#app-root#app-root .timeline-decoration {
+  height: 10.25rem !important;
+  min-height: 10.25rem !important;
+  max-height: 10.25rem !important;
+  margin: 0 auto .35rem !important;
+  padding: .45rem 1rem 1.85rem !important;
+}
+
+#app-root#app-root .timeline-photo {
+  height: 4.8rem !important;
+}
+
+#app-root#app-root .timeline-decoration > .timeline-memory-card:last-child .timeline-photo {
+  background-image: url("/assets/elderly-CXFT-HLW.png") !important;
+}
+
+#app-root#app-root .timeline-memory-card,
+#app-root#app-root .timeline-notebook {
+  width: 7.55rem !important;
+  padding: .45rem .45rem .6rem !important;
+}
+
+#app-root#app-root .timeline-notebook {
+  width: 8.1rem !important;
+  min-height: 6.85rem !important;
+  padding-top: 1.1rem !important;
+  font-size: 1.05rem !important;
+}
+
+#app-root#app-root .timeline-note {
+  gap: .2rem !important;
+  margin-top: 0 !important;
+}
+
+#app-root#app-root .timeline-note strong { font-size: 1.18rem !important; }
+#app-root#app-root .timeline-note span { font-size: .92rem !important; }
+
+@media (max-width: 760px) {
+  #app-root#app-root > div > div.memoir-timeline > main { padding: 1rem !important; }
+  #app-root#app-root > div > div.memoir-timeline > main > div { padding: 1rem !important; }
+  #app-root#app-root > div > div.memoir-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button { min-width: 0 !important; font-size: 1.05rem !important; }
+  #app-root#app-root .timeline-decoration { gap: .35rem; transform: scale(.75); transform-origin: top center; margin-bottom: -2rem; }
+}
+
+

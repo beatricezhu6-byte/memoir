@@ -1,0 +1,155 @@
+/* Interview tips: warm child-portal surface, with all topics and content kept as live DOM. */
+#app-root > div > div:has(> main > div > div > h3.text-white) {
+  height: 100svh !important;
+  min-height: 100svh !important;
+  background-color: #fff8e8 !important;
+  background-image:
+    linear-gradient(rgba(255, 248, 232, .62), rgba(255, 249, 239, .72)),
+    url("/assets/memoir-gallery-room.png") !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: cover, cover !important;
+  background-attachment: fixed, fixed !important;
+}
+
+/* The React transition wrapper otherwise exposes its default gray behind this page. */
+#root:has(#app-root > div > div > main > div > div > h3.text-white),
+#root > div:has(#app-root > div > div > main > div > div > h3.text-white),
+body:has(#app-root > div > div > main > div > div > h3.text-white) {
+  min-height: 100svh !important;
+  background: #fff8e8 !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > header {
+  position: relative !important;
+  min-height: 5.25rem !important;
+  background: rgba(255, 253, 247, .94) !important;
+  border-bottom: 1px solid rgba(173, 98, 29, .20) !important;
+  box-shadow: 0 3px 12px rgba(112, 70, 29, .10) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > header h2 {
+  color: #783b18 !important;
+  font-size: clamp(1.65rem, 2.3vw, 2.25rem) !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > header > button {
+  border: 1px solid #f1d295 !important;
+  border-radius: 1.45rem !important;
+  background: linear-gradient(180deg, #fff9de, #ffedb8) !important;
+  color: #9a4b17 !important;
+  box-shadow: 0 .3rem .75rem rgba(129, 81, 27, .12) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main {
+  width: min(100%, 68rem) !important;
+  margin: 0 auto !important;
+  padding: 1.35rem 1.2rem 1.8rem !important;
+  overflow-y: auto !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div {
+  max-width: none !important;
+  padding: 1.6rem 1.8rem 1.7rem !important;
+  border: 2px solid rgba(255, 255, 255, .94) !important;
+  border-radius: 1.8rem !important;
+  background: rgba(255, 253, 248, .94) !important;
+  box-shadow: 0 16px 34px rgba(101, 59, 26, .14) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div:first-child {
+  margin-bottom: 1.15rem !important;
+  padding: .15rem .2rem !important;
+  text-align: center !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main h3 {
+  color: #783b18 !important;
+  font-size: clamp(1.45rem, 2vw, 1.95rem) !important;
+  font-weight: 900 !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div:first-child > p {
+  color: #a8784f !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+/* Topic selectors remain buttons, now with calm high-contrast states. */
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.flex.flex-wrap {
+  justify-content: center !important;
+  gap: .65rem !important;
+  margin-bottom: 1.15rem !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.flex.flex-wrap > button {
+  min-height: 2.85rem !important;
+  padding: .55rem 1.05rem !important;
+  border: 1px solid #f1d8a8 !important;
+  border-radius: 1.1rem !important;
+  background: #fff8e9 !important;
+  color: #8d551f !important;
+  font-size: .96rem !important;
+  font-weight: 800 !important;
+  box-shadow: none !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.flex.flex-wrap > button[class*="bg-blue-500"] {
+  border-color: #f08d18 !important;
+  background: linear-gradient(135deg, #ffb43e, #ff7b1b) !important;
+  color: #fff !important;
+  box-shadow: 0 .5rem 1rem rgba(211, 103, 17, .22) !important;
+}
+
+/* Each suggestion is a readable card instead of a dark translucent strip. */
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div {
+  border: 1px solid #f0dfbc !important;
+  border-radius: 1.25rem !important;
+  background: linear-gradient(105deg, #fffdf8, #fff7e8) !important;
+  box-shadow: 0 7px 15px rgba(112, 70, 29, .09) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div:hover {
+  border-color: #ebba73 !important;
+  background: linear-gradient(105deg, #fffdf8, #fff2d9) !important;
+  transform: translateY(-2px) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div svg {
+  color: #ef911d !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div > div > div:first-child {
+  border-color: #f7d29b !important;
+  background: linear-gradient(135deg, #fff0c9, #ffd183) !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div p.text-white {
+  color: #6f371a !important;
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+}
+
+#app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.space-y-4 > div p.text-white\/40 {
+  color: #a78162 !important;
+  font-size: .94rem !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 760px) {
+  #app-root > div > div:has(> main > div > div > h3.text-white) > main {
+    width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  #app-root > div > div:has(> main > div > div > h3.text-white) > main > div {
+    padding: 1.2rem !important;
+  }
+
+  #app-root > div > div:has(> main > div > div > h3.text-white) > main > div > div.flex.flex-wrap {
+    justify-content: flex-start !important;
+  }
+}
+
+

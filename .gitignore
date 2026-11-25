@@ -1,0 +1,27 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python runtime
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+
+# Personal and generated runtime data
+uploads/
+data/
+audio/
+images/
+
+# Local system files
+.DS_Store
+Thumbs.db
+
+

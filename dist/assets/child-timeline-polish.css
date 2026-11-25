@@ -1,0 +1,141 @@
+/* Child portal timeline: real controls and text, styled separately from the elder page. */
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline {
+  background:
+    linear-gradient(135deg, rgba(233, 246, 255, .88), rgba(255, 248, 231, .84)),
+    url("/assets/memoir-gallery-room.png") center / cover fixed !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header {
+  background: rgba(248, 253, 255, .92) !important;
+  box-shadow: 0 2px 12px rgba(35, 102, 153, .12) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main {
+  max-width: 76rem !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div {
+  border-color: rgba(255, 255, 255, .98) !important;
+  background: rgba(252, 254, 255, .97) !important;
+  box-shadow: 0 14px 30px rgba(40, 99, 143, .16) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div > div:first-child {
+  border-color: #c9e5f7 !important;
+  background: linear-gradient(135deg, #eef9ff, #fffaf0) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div > div:first-child p {
+  color: #24567a !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:first-child {
+  background: linear-gradient(135deg, #3d9ee8, #2874ca) !important;
+  box-shadow: 0 10px 20px rgba(43, 119, 201, .22) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div > div.flex.items-center.justify-center.gap-4 > button:last-child {
+  background: linear-gradient(135deg, #9d79e8, #7651c9) !important;
+  box-shadow: 0 10px 20px rgba(118, 81, 201, .2) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-preview-copy strong,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-note strong {
+  color: #285d86 !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-preview-copy span,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-note span {
+  color: #7794a7 !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-decoration::after {
+  border-color: #8cc8ef !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-memory-card,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-notebook {
+  border-color: #c9e2ef !important;
+  box-shadow: 0 7px 14px rgba(46, 113, 159, .13) !important;
+  color: #315f7d !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-notebook {
+  background: repeating-linear-gradient(0deg, #f4fbff, #f4fbff 1.3rem, #cfe6f4 1.35rem) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-notebook::before {
+  background: repeating-linear-gradient(90deg, #5d9fc7, #5d9fc7 .35rem, transparent .35rem, transparent 1.1rem) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-memory-card:hover,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-notebook:hover {
+  z-index: 3;
+  transform: translateY(-.35rem) scale(1.035) !important;
+}
+
+/* The child route begins life as a dark page. Give its real header and panel
+   their own warm, high-contrast finish instead of inheriting white text and
+   the elder page's oversized empty-state height. */
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline {
+  height: 100svh !important;
+  min-height: 100svh !important;
+  overflow: hidden !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header {
+  min-height: 5.25rem !important;
+  color: #623616 !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header h2,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header button,
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header button * {
+  color: #623616 !important;
+  opacity: 1 !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > header button {
+  background: #fff8e9 !important;
+  border: 1px solid #e9c68f !important;
+  box-shadow: 0 3px 10px rgba(112, 68, 25, .12) !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main {
+  display: flex !important;
+  align-items: flex-start !important;
+  max-width: 78rem !important;
+  height: calc(100svh - 5.25rem) !important;
+  min-height: 0 !important;
+  padding: 1.15rem 1.5rem !important;
+  overflow: auto !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div {
+  min-height: 0 !important;
+  height: fit-content !important;
+  margin: 0 auto !important;
+  padding: 1.4rem 2.1rem 1.55rem !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-decoration {
+  margin: .1rem auto .35rem !important;
+}
+
+#app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-note {
+  margin: .15rem auto 0 !important;
+}
+
+@media (max-height: 780px) {
+  #app-root#app-root > div > div.memoir-timeline.memoir-child-timeline > main > div {
+    padding-top: 1rem !important;
+  }
+
+  #app-root#app-root > div > div.memoir-timeline.memoir-child-timeline .timeline-decoration {
+    transform: scale(.9);
+    transform-origin: top center;
+    margin-bottom: -1rem !important;
+  }
+}
+
+

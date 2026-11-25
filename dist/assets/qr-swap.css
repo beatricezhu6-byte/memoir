@@ -1,0 +1,15 @@
+/* ============================================================
+   二维码弹窗图替换适配 v20260920-01
+   原 qrcode 为正方图（w-48 h-48），换成「回忆录助手企业微信」竖版长图后
+   用 alt="二维码" 稳定钩子放开比例，完整展示整张图
+   两端弹窗（子女/老人）通用；移除本文件即回滚
+   ============================================================ */
+img[alt="二维码"] {
+  width: auto !important;
+  height: auto !important;
+  max-width: min(300px, 78vw) !important;
+  max-height: 56vh !important;
+  object-fit: contain !important;
+}
+
+

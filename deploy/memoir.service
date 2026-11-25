@@ -1,0 +1,27 @@
+# ============================================================
+#  systemd 服务：回忆录后端常驻
+#  放到 ECS 的 /etc/systemd/system/memoir.service
+#  密钥放在 /etc/memoir.env（不要写进本文件）
+# ============================================================
+
+[Unit]
+Description=Memoir Assistant (老年人回忆录 AI 助手)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/memoir
+EnvironmentFile=/etc/memoir.env
+# 用 venv 里的 python；gunicorn 开 gthread 让语音/AI 这类慢请求不阻塞其他用户
+ExecStart=/opt/memoir/venv/bin/gunicorn -w 1 -k gthread --threads 4 -t 300 -b 127.0.0.1:${MEMOIR_PORT} app:app
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
